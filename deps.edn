@@ -1,3 +1,24 @@
 {:paths ["src" "resources"]
 
- :deps {clj-pdf {:mvn/version "2.5.5"}}}
+ :deps {org.clojure/clojure {:mvn/version "1.10.1"}
+        org.openjfx/javafx-controls {:mvn/version "16-ea+3"}
+        org.openjfx/javafx-base {:mvn/version "16-ea+3"}
+        org.openjfx/javafx-graphics {:mvn/version "16-ea+3"}
+        org.openjfx/javafx-media {:mvn/version "16-ea+3"}
+        org.openjfx/javafx-web {:mvn/version "16-ea+3"}
+	cljfx/cljfx {:mvn/version "1.7.10"}
+        clj-pdf/clj-pdf {:mvn/version "2.5.5"}
+        io.joshmiller/exif-processor {:mvn/version "0.2.0"}
+        me.raynes/fs {:mvn/version "1.4.6"}
+        net.mikera/imagez {:mvn/version "0.12.0"}}
+ 
+ :aliases {:test {:extra-paths ["test"]
+                  :extra-deps {org.clojure/test.check {:mvn/version "1.0.0"}}}
+           :runner {:extra-deps {com.cognitect/test-runner
+                                 {:git/url "https://github.com/cognitect-labs/test-runner"
+                                  :sha "b6b3193fcc42659d7e46ecd1884a228993441182"}}
+                    :main-opts ["-m" "cognitect.test-runner"
+                                "-d" "test"]}
+           :uberjar {:extra-deps {seancorfield/depstar {:mvn/version "1.1.128"}}
+                     :main-opts ["-m" "hf.depstar.uberjar" "fx.jar"
+                                 "-C" "-m" "b4.fx"]}}}
