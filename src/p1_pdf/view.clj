@@ -9,6 +9,11 @@
 (def *state
   (atom {:file nil}))
 
+
+;; (defn set-noti [s]
+;;   (dorun (prn "in the noti")
+;;          (swap! *state :noti s)))
+
 (defmulti handle ::event)
 
 (defmethod handle ::open-file [{:keys [^ActionEvent fx/event]}]
@@ -16,24 +21,24 @@
         chooser (doto (FileChooser.)
                   (.setTitle "Open File"))]
     (when-let [files (.showOpenMultipleDialog chooser window)]
-      {:state {:files files :content nil :noti "press make-pdf and wait for it until done"}})))
+      {:state {:files files :content nil :noti "click make-pdf and wait until done"}})))
 
 (defmethod handle ::make-pdf [{:keys [^ActionEvent fx/event files]}]
   (let [window (.getWindow (.getScene ^Node (.getTarget event)))
         files (:files @*state)]
-    (pdf/make-pdf files "pdfdpf")
+    (pdf/make-pdf files "made")
     {:state {:files files :content nil :noti "done"}}))
 
 (defn root-view [{:keys [files content noti]}]
   {:fx/type :stage
-   :title "Textual file viewer"
+   :title "..........."
    :showing true
    :width 800
    :height 600
    :scene {:fx/type :scene
            :root {:fx/type :v-box
                   :padding 30
-                  ;; :spacing 15
+                  :spacing 15
                   :children [{:fx/type :label
                               :text noti}
                              {:fx/type :h-box

@@ -14,8 +14,9 @@
 
 
 (defn make-pdf [files filename]
-  (future
   (->> files
        (map img/make-image)
        (remove nil?)
-       (build filename))))
+       (build filename)))
+
+

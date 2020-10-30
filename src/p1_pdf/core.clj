@@ -3,3 +3,7 @@
 
 (defn -main []
   (view/view))
+
+(comment
+  (javafx.application.Platform/exit)
+  )

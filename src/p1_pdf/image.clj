@@ -3,7 +3,7 @@
             [exif-processor.core :as exif]
             [mikera.image.core :as img]))
 
-(def image-extention #{"jpg" "png" "bmp" "jpeg" "tif" "tiff"})
+(def image-extention #{"jpg" "png" "bmp" "jpeg"})
 
 (defn support-image? [file]
   (let [filename (condp = (type file)
