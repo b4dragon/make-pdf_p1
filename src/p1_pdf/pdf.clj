@@ -6,26 +6,26 @@
 (def image-fmt {:xscale 0.9
                 :yscale 0.9
                 :align :center})
-(def pdf-meta (read-string (slurp "meta.edn")))
+(def setting (read-string (slurp "setting.edn")))
 
 (defn build [pdf-name images]
-  (let [image-fmt (:image pdf-meta)
+  (let [image-fmt (:image setting)
         fmt {:xscale (:xscale image-fmt)
              :yscale (:yscale image-fmt)
              :align (:align image-fmt)}]
-    (pdf/pdf [{;;(when-not (empty? (:header pdf-meta))
-                 ;;:header (:header pdf-meta))
-               :author "나님"
-               :size "A4"
-               :doc-header ["inspired by " "sdfsdf"]
-               :footer (get-in pdf-meta [:footer :text])}
+    (pdf/pdf [{:header (:header setting)
+               :author (:author setting)
+               :size (:size setting)
+               :doc-header [""]
+               :footer (get-in setting [:footer :text])
+               :page-numbers (get-in setting [:footer :page-numbers])}
               (for [image images]
-                [:image fmt image])]
+                [:image fmt (:image image)])]
              pdf-name)))
   
 (defn make-pdf [files filename]
   (->> files
-       (map img/make-image)
+       (pmap #(img/make-image % (:image-width setting)))
        (remove nil?)
        (build filename)))
        

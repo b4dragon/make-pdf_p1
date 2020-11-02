@@ -1,17 +1,19 @@
 {:paths ["src" "resources"]
 
  :deps {org.clojure/clojure {:mvn/version "1.10.1"}
-        org.openjfx/javafx-controls {:mvn/version "16-ea+3"}
-        org.openjfx/javafx-base {:mvn/version "16-ea+3"}
-        org.openjfx/javafx-graphics {:mvn/version "16-ea+3"}
-        org.openjfx/javafx-media {:mvn/version "16-ea+3"}
-        org.openjfx/javafx-web {:mvn/version "16-ea+3"}
+        ;; org.openjfx/javafx-controls {:mvn/version "16-ea+3"}
+        ;; org.openjfx/javafx-base {:mvn/version "16-ea+3"}
+        ;; org.openjfx/javafx-graphics {:mvn/version "16-ea+3"}
+        ;; org.openjfx/javafx-media {:mvn/version "16-ea+3"}
+        ;; org.openjfx/javafx-web {:mvn/version "16-ea+3"}
 	cljfx/cljfx {:mvn/version "1.7.10"}
         clj-pdf/clj-pdf {:mvn/version "2.5.5"}
         io.joshmiller/exif-processor {:mvn/version "0.2.0"}
-        me.raynes/fs {:mvn/version "1.4.6"}
+        ;; me.raynes/fs {:mvn/version "1.4.6"}
         net.mikera/imagez {:mvn/version "0.12.0"}}
- 
+
+ :jvm-opts ["-Dcljfx.skip-javafx-initialization=true"]
+
  :aliases {:test {:extra-paths ["test"]
                   :extra-deps {org.clojure/test.check {:mvn/version "1.0.0"}}}
            :runner {:extra-deps {com.cognitect/test-runner

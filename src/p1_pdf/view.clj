@@ -3,6 +3,7 @@
             [p1-pdf.pdf :as pdf])
   (:import [java.io FileInputStream InputStream]
            [java.awt Desktop]
+           [javafx.application Platform]
            [javafx.stage FileChooser]
            [javafx.event ActionEvent]
            [javafx.scene Node]))
@@ -38,7 +39,7 @@
 
 (defn root-view [{:keys [files content noti]}]
   {:fx/type :stage
-   :title "..........."
+   :title "make a pdf with only images."
    :showing true
    :width 800
    :height 600
@@ -72,5 +73,6 @@
                                  :dispatch fx/dispatch-effect}))}))
 
 (defn view []
+  (Platform/setImplicitExit true)  
   (fx/mount-renderer *state renderer))
 

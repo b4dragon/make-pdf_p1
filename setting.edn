@@ -1,0 +1,15 @@
+{:title "young's doc"
+ :header "";;"i made it"
+ :author "han joo young"
+ :image {:xscale 0.9
+         :yscale 0.9
+         :align :center}
+ :footer {:text ""
+          :align :left
+          :footer-separator 2
+          :page-numbers false}
+
+ :size "A4"
+ :register-system-fonts? true
+ :image-width 2480}
+
