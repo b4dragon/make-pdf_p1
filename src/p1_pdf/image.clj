@@ -11,6 +11,7 @@
                                       (.getName))
                     java.lang.String file)
         extention (.substring filename (+ 1 (.lastIndexOf filename ".")))]
+    (prn "supported? " (not (nil? (image-extention extention))) " -" (.getName file))
     (not (nil? (image-extention extention)))))
 
 (defn make-file-list [dir]
@@ -35,8 +36,7 @@
 (defn make-image [file]
   (when (support-image? file)
     (let [path (-> file
-                   (.getPath)
-                   sort)
+                   (.getPath))
           rotation (extract-rotation file)
           img (img/load-image path)]
       (rotate img rotation))))
