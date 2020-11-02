@@ -9,11 +9,6 @@
 (def *state
   (atom {:file nil}))
 
-
-;; (defn set-noti [s]
-;;   (dorun (prn "in the noti")
-;;          (swap! *state :noti s)))
-
 (defmulti handle ::event)
 
 (defmethod handle ::open-file [{:keys [^ActionEvent fx/event]}]

@@ -34,7 +34,9 @@
 
 (defn make-image [file]
   (when (support-image? file)
-    (let [path (.getPath file)
+    (let [path (-> file
+                   (.getPath)
+                   sort)
           rotation (extract-rotation file)
           img (img/load-image path)]
       (rotate img rotation))))
