@@ -21,7 +21,7 @@
                :footer (get-in pdf-meta [:footer :text])}
               (for [image images]
                 [:image fmt image])]
-             (str pdf-name ".pdf"))))
+             pdf-name)))
   
 (defn make-pdf [files filename]
   (->> files

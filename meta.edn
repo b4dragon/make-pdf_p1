@@ -1,0 +1,12 @@
+{:title "test doc"
+ :header "" ;;page haeader text."
+ :image {:xscale 0.9
+         :yscale 0.9
+         :align :center}
+ :footer {:text "page footer"
+          :align :left
+          :footer-separator 2
+          :page-numbers false}
+ 
+ :register-system-fonts? true}
+
