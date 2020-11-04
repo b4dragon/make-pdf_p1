@@ -1,15 +1,21 @@
-{:title "young's doc"
- :header "";;"i made it"
- :author "han joo young"
- :image {:xscale 0.9
+{:default {:title "made by ..."
+           :header "일해라. 한주영 ";;use nil when wanna remove 
+           :author "yj"
+           :doc-header [""]
+           :image {:xscale 0.9
+                   :yscale 0.9
+                   :align :center}
+           :footer {:text "잘 하고 있나? "
+                    :align :right
+                    :footer-separator 10
+                    :page-numbers true}
+           :font {:encoding :unicode
+                  :ttf-name "dr.ttf"}
+           :size "A4"
+           :register-system-fonts? true}
+ :image {:image-width 2480
+         :xscale 0.9
          :yscale 0.9
-         :align :center}
- :footer {:text ""
-          :align :left
-          :footer-separator 2
-          :page-numbers false}
-
- :size "A4"
- :register-system-fonts? true
- :image-width 2480}
+         :align :center}}
+         
 

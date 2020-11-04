@@ -14,6 +14,7 @@
          :noti "choose files"}))
 
 (defn view-pdf [pdf]
+  (prn "supported? " (java.awt.Desktop/isDesktopSupported))
   (when (java.awt.Desktop/isDesktopSupported)
     (.open (Desktop/getDesktop) (new java.io.File pdf))))
 
@@ -34,7 +35,7 @@
       {:state {:files "" :content "" :noti "choose file!!!"}}
       (do
         (pdf/make-pdf files pdf-filename)
-        (view-pdf pdf-filename)
+        ;; (view-pdf pdf-filename)
         {:state {:files "" :content "" :noti "done"}}))))
 
 (defn root-view [{:keys [files content noti]}]

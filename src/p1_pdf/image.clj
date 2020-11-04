@@ -11,7 +11,7 @@
                                       (.getName))
                     java.lang.String file)
         extention (.substring filename (+ 1 (.lastIndexOf filename ".")))]
-    ;; (prn "supported? " (not (nil? (image-extention extention))) " -" (.getName file))
+    (prn "supported? " (not (nil? (image-extention extention))) " -" (.getName file))
     (not (nil? (image-extention extention)))))
 
 ;; (defn make-file-list [dir]
