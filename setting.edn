@@ -13,9 +13,11 @@
                   :ttf-name "dr.ttf"}
            :size "A4"
            :register-system-fonts? true}
- :image {:image-width 2480
+ :image {
          :xscale 0.9
          :yscale 0.9
-         :align :center}}
+         :align :center}
+ 
+ :image-quality {:image-width 2480}}
          
 

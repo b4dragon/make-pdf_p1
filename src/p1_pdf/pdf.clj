@@ -11,8 +11,9 @@
              pdf-name))
   
 (defn make-pdf [files filename]
-  (->> files
-       (map #(img/make-image % (:image-width setting)))
-       (remove nil?)
-       (build filename)))
-       
+  (let [img-width (get-in setting [:image-quality :image-width])]
+    (->> files
+         (map #(img/make-image % img-width))
+         (remove nil?)
+         (build filename))))
+         
